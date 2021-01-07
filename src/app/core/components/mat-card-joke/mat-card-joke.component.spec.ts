@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DslikedJokesComponent } from './dsliked-jokes.component';
+import { MatCardJokeComponent } from './mat-card-joke.component';
 
-describe('DslikedJokesComponent', () => {
-  let component: DslikedJokesComponent;
-  let fixture: ComponentFixture<DslikedJokesComponent>;
+describe('MatCardJokeComponent', () => {
+  let component: MatCardJokeComponent;
+  let fixture: ComponentFixture<MatCardJokeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DslikedJokesComponent ]
+      declarations: [ MatCardJokeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DslikedJokesComponent);
+    fixture = TestBed.createComponent(MatCardJokeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

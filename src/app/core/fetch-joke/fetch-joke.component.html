@@ -1,8 +1,0 @@
-<mat-card>
-  <mat-card-title>Chuck Norris Joke</mat-card-title>
-  <mat-icon style="color: green;">thumb_up</mat-icon>
-  <mat-icon style="color: red;">thumb_down</mat-icon>
-  <hr>
-  <mat-label>Fetch time(s): </mat-label><input matInput type="number" value="30" #numb (change)="getJoke(numb.value)">
-  <pre>{{ joke$ | async | json}}</pre>
-</mat-card>
