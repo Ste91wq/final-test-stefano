@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ContainerComponent } from './core/components/container/container.component';
 import { FetchJokeComponent } from './core/components/fetch-joke/fetch-joke.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardJokeComponent } from './core/components/mat-card-joke/mat-card-joke.component';
 import { MaterialModule } from './shared/material/material.module';
@@ -21,6 +22,7 @@ import { NgModule } from '@angular/core';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule
