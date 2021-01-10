@@ -1,26 +1,29 @@
+import { catchError, map } from 'rxjs/operators';
+
 import { HttpClient } from '@angular/common/http';
-import { IJoke } from 'src/app/shared/model/joke';
-import { IJokedResponse } from './../model/joke';
 import { Injectable } from '@angular/core';
+import { Joke } from 'src/app/shared/model/joke';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
+
+class JokeResponse {
+  constructor(public type: string, public value: Joke) {}
+}
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JokeService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getJokes(): Observable<IJoke> {
-    return this.http.get<IJokedResponse>(environment.apiChuckNorrisJokes).pipe(
-      map((result) => {
-        return {
-          id: result.value.id,
-          joke: result.value.joke
-        }
+  getRandomJoke(): Observable<Joke> {
+    return this.http.get<JokeResponse>(environment.apiChuckNorrisJokes).pipe(
+      map((jokeResponse: JokeResponse) => jokeResponse.value),
+      map((r) => new Joke(r.id, r.joke, r.categories)),
+      catchError((error) => {
+        console.error(`An error has occurred: `, error);
+        throw new Error(error);
       })
-    )
+    );
   }
 }
