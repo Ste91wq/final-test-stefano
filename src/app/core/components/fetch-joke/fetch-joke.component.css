@@ -1,4 +1,11 @@
-mat-icon{
-  margin: 5px;
+mat-icon {
   cursor: pointer;
+}
+
+.content {
+  margin-top: 15px;
+}
+
+#fetch-time {
+  width: 300px;
 }

@@ -1,18 +1,22 @@
-<div fxLayout="column">
+<div>
 
-  <mat-card-title>Chuck norris Joke</mat-card-title>
+  <mat-card>
+    <mat-card-title-group>
+      <mat-card-title>Chuck norris Joke</mat-card-title>
+      <div id="fetch-time" fxLayout="row" fxLayoutAlign="center center">
+        <label fxFlex="40" for="fetch-time">Fetch Time (s): </label>
+        <input matInput fxflex="25" type="number" name="fetch-time" step="1" [(ngModel)]="fetchTime"/>
+      </div>
+    </mat-card-title-group>
 
-  <div fxLayout="row" fxLayoutAlign="space-evenly center">
-    <div fxLayoutGap="30px">
-      <mat-icon style="color: green;">thumb_up</mat-icon>
-      <mat-icon style="color: red;">thumb_down</mat-icon>
-    </div>
+    <mat-card-content>
+      <div fxLayout="row" fxLayoutGap="20px">
+        <mat-icon color="primary">thumb_up</mat-icon>
+        <mat-icon color="warn">thumb_down</mat-icon>
+      </div>
 
-    <div fxLayoutGap="5px">
-      <mat-label>Fetch Time (s): </mat-label><input matInput type="number">
-    </div>
+      <div class="content">{{ joke?.joke }}</div>
+    </mat-card-content>
+  </mat-card>
 
-  </div>
-
-  <p>joke</p>
 </div>
