@@ -1,18 +1,29 @@
 <mat-card>
   <mat-card-content>
-    <h2>Card Title</h2>
+    <h2>{{ cardTitle }}</h2>
     <div fxLayout="column" fxLayoutGap="15px">
-      <mat-card>
+      <mat-card *ngFor="let jokeWrapper of jokes$ | async">
         <mat-card-content>
-          joke
+          {{ jokeWrapper.joke }}
         </mat-card-content>
 
-        <mat-card-actions fxLayoutAlign="end" fxLayoutGap="5px">
-          <button mat-raised-button color="accent">LIKE</button>
-          <button mat-raised-button color="primary">DISLIKED</button>
-          <button mat-raised-button>ARCHIVE</button>
+        <mat-card-actions align="end" *ngIf="containerType !== CardContainerType.ARCHIVED">
+          <button *ngIf="containerType === CardContainerType.DISLIKED" mat-button color="accent"
+            (click)="like(jokeWrapper)">
+            LIKE
+          </button>
 
-          <button mat-raised-button color="warn">DELETE</button>
+          <button *ngIf="containerType === CardContainerType.LIKED" mat-button
+            (click)="dislike(jokeWrapper)">
+            DISLIKED
+          </button>
+
+          <button *ngIf="containerType === CardContainerType.ARCHIVED" mat-button (click)="archive(jokeWrapper)">
+            ARCHIVE
+          </button>
+
+          <button mat-button (click)="archive(jokeWrapper)">ARCHIVE</button>
+          <button mat-button color="warn" (click)="delete(jokeWrapper)">DELETE</button>
         </mat-card-actions>
       </mat-card>
     </div>
