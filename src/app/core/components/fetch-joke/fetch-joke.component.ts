@@ -10,5 +10,4 @@ export class FetchJokeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
 }

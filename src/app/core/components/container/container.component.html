@@ -1,9 +1,19 @@
-<div>
-  <app-mat-card-joke></app-mat-card-joke>
-  <app-fetch-joke></app-fetch-joke>
-</div>
+<div id="container" fxLayout="row">
+  <div class="section" fxFlex="50">
 
-<div>
-  <app-mat-card-joke></app-mat-card-joke>
-  <app-mat-card-joke></app-mat-card-joke>
+    <div fxLayout="column" fxLayoutGap="20px">
+      <app-mat-card-joke></app-mat-card-joke>
+      <app-mat-card-joke></app-mat-card-joke>
+    </div>
+
+  </div>
+
+  <div class="section" fxFlex="50">
+
+    <div fxLayout="column" fxLayoutGap="20px">
+      <app-fetch-joke></app-fetch-joke>
+      <app-mat-card-joke></app-mat-card-joke>
+    </div>
+
+  </div>
 </div>
